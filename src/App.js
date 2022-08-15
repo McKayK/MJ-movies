@@ -1,8 +1,14 @@
 import "./App.css";
+import axios from 'axios'
 
 function App() {
-  const print = () => {
-    console.log("hello git");
+  //this function is hitting the end server to get the LOTR movie obj
+  const movieObj = () => {
+    axios.get(`http://localhost:3004/movie`)
+    .then(res => {
+      //this is the obj if you want to you it to start styling i have it on the button
+      console.log(res.data)
+    })
   };
 
   return (
@@ -14,6 +20,9 @@ function App() {
       <div>
         <h1>this is jacobs div you can add changes</h1>
       </div>
+      <button onClick={movieObj}>
+        click me
+      </button>
     </div>
   );
 }
